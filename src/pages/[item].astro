@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro';
+import {products} from '../data/items';
+
+const { product } = Astro.params;
+
+const  info = products.find (b => b.id === product);
+if (!info){
+    return Astro.redirect ('/404')
+};
+    
+---
+<Layout title= "pdp">
+
+<h1 class="text-black text-2xl">pdp</h1>
+
+
+</Layout>

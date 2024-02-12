@@ -1,0 +1,33 @@
+---
+export  interface Props {
+    id: string
+    title: string
+    description: string
+    price: number
+    thumbnail: string
+    
+}
+const {
+    id,
+    title,
+    description,
+    price,
+    thumbnail
+} = Astro.props
+
+
+const truncatedDescription = description.length > 60 ? `${description.substring(0, 57)}...` : description;
+
+const truncatedDescriptionTitle = title.length > 17 ? `${title.substring(0, 14)}...` : title;
+
+---
+
+<a class=" grid place-content-center p-3 border rounded-2xl" href={`/${id}`}>
+
+    <img class=" h-32 w-full" src={thumbnail} alt={title}>
+    <p class=" grid place-content-center py-2  font-semibold">{truncatedDescriptionTitle}</p>
+    <div class=" w-full border "></div>
+	<p class=" text-sm text-center py-2" >{truncatedDescription}</p>
+	<p class=" text-center font-semibold"> <span class="font-normal">USD </span>${price}</p>
+
+</a>

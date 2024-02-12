@@ -1,0 +1,16 @@
+---
+import ItemCard from './ItemCard.astro'
+import {products} from '../data/items'
+---
+
+<ul class=' grid grid-cols-2 gap-5 m-3'>
+
+  {
+    products.map(({title, description, price, thumbnail, id})=> {
+      return(
+        <li> <ItemCard title={title} description={description} price={price} thumbnail={thumbnail} id={id} /> </li>
+      )
+    })
+  }
+
+</ul>
